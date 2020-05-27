@@ -11,9 +11,8 @@ from runner.det.single_shot_detector import SingleShotDetector
 from runner.det.single_shot_detector_test import SingleShotDetectorTest
 from runner.det.yolov3 import YOLOv3
 from runner.det.yolov3_test import YOLOv3Test
-from runner.pose.conv_pose_machine import ConvPoseMachine
+from runner.pose.pose_estimator import PoseEstimator
 from runner.pose.conv_pose_machine_test import ConvPoseMachineTest
-from runner.pose.open_pose import OpenPose
 from runner.pose.open_pose_test import OpenPoseTest
 from runner.seg.fcn_segmentor import FCNSegmentor
 from runner.seg.fcn_segmentor_test import FCNSegmentorTest
@@ -21,12 +20,12 @@ from runner.gan.image_translator import ImageTranslator
 from runner.gan.image_translator_test import ImageTranslatorTest
 from runner.gan.face_gan import FaceGAN
 from runner.gan.face_gan_test import FaceGANTest
-from tools.util.logger import Logger as Log
+from lib.tools.util.logger import Logger as Log
 
 
 POSE_METHOD_DICT = {
-    'open_pose': OpenPose,
-    'conv_pose_machine': ConvPoseMachine,
+    'open_pose': PoseEstimator,
+    'conv_pose_machine': PoseEstimator,
 }
 POSE_TEST_DICT = {
     'open_pose': OpenPoseTest,

@@ -11,15 +11,15 @@ import numpy as np
 import torch
 from scipy.ndimage.filters import gaussian_filter
 
-from datasets.pose.data_loader import DataLoader
-from runner.tools.blob_helper import BlobHelper
-from runner.tools.runner_helper import RunnerHelper
+from data.pose.data_loader import DataLoader
+from lib.runner.blob_helper import BlobHelper
+from lib.runner.runner_helper import RunnerHelper
 from model.pose.model_manager import ModelManager
-from tools.helper.image_helper import ImageHelper
-from tools.helper.json_helper import JsonHelper
-from tools.util.logger import Logger as Log
-from tools.parser.pose_parser import PoseParser
-from tools.vis.pose_visualizer import PoseVisualizer
+from lib.tools.helper.image_helper import ImageHelper
+from lib.tools.helper.json_helper import JsonHelper
+from lib.tools.util.logger import Logger as Log
+from lib.tools.parser.pose_parser import PoseParser
+from lib.tools.vis.pose_visualizer import PoseVisualizer
 
 
 class OpenPoseTest(object):
@@ -36,7 +36,7 @@ class OpenPoseTest(object):
         self._init_model()
 
     def _init_model(self):
-        self.pose_net = self.pose_model_manager.get_multi_pose_model()
+        self.pose_net = self.pose_model_manager.get_pose_model()
         self.pose_net = RunnerHelper.load_net(self, self.pose_net)
         self.pose_net.eval()
 
